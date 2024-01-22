@@ -212,7 +212,7 @@ public class Tree {
         printNodesAtDistance(k - 1, root.rightChild);
     }
 
-    public void traverseBreadthFirst(){
+    public void traverseBreadthFirst() {
         for (int i = 0; i <= height(); i++) {
             printNodesAtDistance(i);
         }
