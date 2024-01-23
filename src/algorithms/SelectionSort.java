@@ -6,7 +6,7 @@ public class SelectionSort {
             int index = i;
 
             for (int j = i; j < array.length; j++) {
-                if(array[j] < array[index]){
+                if (array[j] < array[index]) {
                     index = j;
                 }
             }
