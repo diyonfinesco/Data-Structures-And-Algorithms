@@ -1,12 +1,6 @@
 package data_structures;
 
 public class Tree {
-    private class Node {
-        private int value;
-        private Node leftChild;
-        private Node rightChild;
-    }
-
     private Node root;
 
     public void insert(int value) {
@@ -220,5 +214,11 @@ public class Tree {
 
     private boolean isLeaf(Node node) {
         return node.rightChild == null && node.leftChild == null;
+    }
+
+    private class Node {
+        private int value;
+        private Node leftChild;
+        private Node rightChild;
     }
 }
