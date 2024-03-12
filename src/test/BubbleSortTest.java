@@ -7,92 +7,77 @@ import org.junit.jupiter.api.Test;
 class BubbleSortTest {
 
     @Test
+    void shouldSortSmallArray() {
+        int[] array = {5, 2, 4, 6, 1, 3};
+        BubbleSort.sort(array);
+        Assertions.assertArrayEquals(new int[]{1, 2, 3, 4, 5, 6}, array);
+    }
+
+    @Test
     void shouldSortLargeArray() {
-        final int[] array = {2, 6, 2, 7, 1, 84, -3, 41, 75, 122, 31, -1};
-        final int[] sortedArray = {-3, -1, 1, 2, 2, 6, 7, 31, 41, 75, 84, 122};
-
+        int[] array = new int[1000];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = array.length - i;
+        }
         BubbleSort.sort(array);
-
-        Assertions.assertArrayEquals(sortedArray, array);
+        for (int i = 1; i <= array.length; i++) {
+            Assertions.assertEquals(i, array[i - 1]);
+        }
     }
 
     @Test
-    void shouldSortFiveElements() {
-        final int[] array = {-3, 41, 75, 122, -1, 84};
-        final int[] sortedArray = {-3, -1, 41, 75, 84, 122};
-
+    void shouldSortArrayWithNegatives() {
+        int[] array = {-3, -1, -4, -2, 0};
         BubbleSort.sort(array);
-
-        Assertions.assertArrayEquals(sortedArray, array);
-    }
-
-    @Test
-    void shouldSortTwoElements() {
-        final int[] array = {2, 6};
-        final int[] sortedArray = {2, 6};
-
-        BubbleSort.sort(array);
-
-        Assertions.assertArrayEquals(sortedArray, array);
-    }
-
-    @Test
-    void shouldSortEmptyArray() {
-        final int[] array = {};
-        final int[] sortedArray = {};
-
-        BubbleSort.sort(array);
-
-        Assertions.assertArrayEquals(sortedArray, array);
-    }
-
-    @Test
-    void shouldSortAlreadySortedArray() {
-        final int[] array = {1, 2, 3, 4, 5};
-        final int[] sortedArray = {1, 2, 3, 4, 5};
-
-        BubbleSort.sort(array);
-
-        Assertions.assertArrayEquals(sortedArray, array);
-    }
-
-    @Test
-    void shouldSortReverseSortedArray() {
-        final int[] array = {5, 4, 3, 2, 1};
-        final int[] sortedArray = {1, 2, 3, 4, 5};
-
-        BubbleSort.sort(array);
-
-        Assertions.assertArrayEquals(sortedArray, array);
+        Assertions.assertArrayEquals(new int[]{-4, -3, -2, -1, 0}, array);
     }
 
     @Test
     void shouldSortArrayWithDuplicates() {
-        final int[] array = {3, 1, 2, 1, 3};
-        final int[] sortedArray = {1, 1, 2, 3, 3};
-
+        int[] array = {5, 2, 2, 3, 3, 1};
         BubbleSort.sort(array);
+        Assertions.assertArrayEquals(new int[]{1, 2, 2, 3, 3, 5}, array);
+    }
 
-        Assertions.assertArrayEquals(sortedArray, array);
+    @Test
+    void shouldSortAlreadySortedArray() {
+        int[] array = {1, 2, 3, 4, 5};
+        BubbleSort.sort(array);
+        Assertions.assertArrayEquals(new int[]{1, 2, 3, 4, 5}, array);
+    }
+
+    @Test
+    void shouldSortReverseSortedArray() {
+        int[] array = {5, 4, 3, 2, 1};
+        BubbleSort.sort(array);
+        Assertions.assertArrayEquals(new int[]{1, 2, 3, 4, 5}, array);
     }
 
     @Test
     void shouldSortArrayWithAllIdenticalElements() {
-        final int[] array = {1, 1, 1, 1, 1};
-        final int[] sortedArray = {1, 1, 1, 1, 1};
-
+        int[] array = {1, 1, 1, 1, 1};
         BubbleSort.sort(array);
-
-        Assertions.assertArrayEquals(sortedArray, array);
+        Assertions.assertArrayEquals(new int[]{1, 1, 1, 1, 1}, array);
     }
 
     @Test
-    void shouldSortArrayWithNegativesAndZeros() {
-        final int[] array = {-1, 0, -3, 0, 2};
-        final int[] sortedArray = {-3, -1, 0, 0, 2};
-
+    void shouldSortSingleElementArray() {
+        int[] array = {1};
         BubbleSort.sort(array);
+        Assertions.assertArrayEquals(new int[]{1}, array);
+    }
 
-        Assertions.assertArrayEquals(sortedArray, array);
+    @Test
+    void shouldSortEmptyArray() {
+        int[] array = {};
+        BubbleSort.sort(array);
+        Assertions.assertArrayEquals(new int[]{}, array);
+    }
+
+    @Test
+    void shouldSortArrayWithZerosAndNegatives() {
+        int[] array = {0, -1, -3, 0, 2};
+        BubbleSort.sort(array);
+        Assertions.assertArrayEquals(new int[]{-3, -1, 0, 0, 2}, array);
     }
 }
