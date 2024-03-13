@@ -3,7 +3,6 @@
 A brief description of the project goes here.
 
 ## Table of Contents
-## Table of Contents
 - [What is Data Structures and Algorithms](#what-is-data-structures-and-algorithms)
 
 ## What is Data Structures and Algorithms
