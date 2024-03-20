@@ -28,9 +28,8 @@ public class LinkedList {
             first = node;
             last = node;
         } else {
-            Node firstNode = first;
+            node.next = first;
             first = node;
-            node.next = firstNode;
         }
 
         size++;
@@ -46,9 +45,8 @@ public class LinkedList {
             first = node;
             last = node;
         } else {
-            Node lastNode = last;
+            last.next = node;
             last = node;
-            lastNode.next = node;
         }
 
         size++;
