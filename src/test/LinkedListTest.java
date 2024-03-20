@@ -222,6 +222,7 @@ public class LinkedListTest {
 
             assertEquals(30, list.getKthFromTheEnd(1));
         }
+
         @Test
         public void getSecondElementFromTheEnd() {
             list.addLast(10);

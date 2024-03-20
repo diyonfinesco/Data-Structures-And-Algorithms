@@ -24,7 +24,7 @@ public class LinkedList {
         if (isEmpty()) {
             first = node;
             last = node;
-        }else {
+        } else {
             Node firstNode = first;
             first = node;
             node.next = firstNode;
@@ -39,7 +39,7 @@ public class LinkedList {
         if (isEmpty()) {
             first = node;
             last = node;
-        }else {
+        } else {
             Node lastNode = last;
             last = node;
             lastNode.next = node;
@@ -74,7 +74,7 @@ public class LinkedList {
 
         if (isContainsOnlyOneElement()) {
             clear();
-        }else{
+        } else {
             Node secondNode = first.next;
             first.next = null;
             first = secondNode;
@@ -90,7 +90,7 @@ public class LinkedList {
 
         if (isContainsOnlyOneElement()) {
             clear();
-        }else {
+        } else {
             Node current = first;
             Node previous = first;
 
@@ -115,7 +115,7 @@ public class LinkedList {
         }
     }
 
-    public int[] toArray(){
+    public int[] toArray() {
         int[] array = new int[size];
         int index = 0;
 
@@ -133,8 +133,8 @@ public class LinkedList {
         return size;
     }
 
-    public void reverse(){
-        if(isEmpty()){
+    public void reverse() {
+        if (isEmpty()) {
             return;
         }
 
@@ -142,7 +142,7 @@ public class LinkedList {
         Node current = first;
 
 
-        while (current != null){
+        while (current != null) {
             Node next = current.next;
             current.next = previousNode;
             previousNode = current;
@@ -154,12 +154,12 @@ public class LinkedList {
         first = previousNode;
     }
 
-    public int getKthFromTheEnd(int k){
+    public int getKthFromTheEnd(int k) {
         if (isEmpty()) {
             throw new NoSuchElementException();
         }
 
-        if(k < 1 || k > size){
+        if (k < 1 || k > size) {
             throw new IllegalArgumentException();
         }
 
@@ -168,8 +168,8 @@ public class LinkedList {
 
         Node current = first;
 
-        while (current != null){
-            if(k <= index){
+        while (current != null) {
+            if (k <= index) {
                 targetPoint = targetPoint.next;
             }
             index++;

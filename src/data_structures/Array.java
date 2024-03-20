@@ -5,16 +5,16 @@ public class Array {
     private int[] items;
     private int count;
 
-    public Array(int size){
+    public Array(int size) {
         items = new int[size];
     }
 
     /*
         Runtime complexity - O(n)
     */
-    public void insert(int item){
+    public void insert(int item) {
 
-        if(count == items.length){
+        if (count == items.length) {
             int[] temp = new int[count * 2];
 
             for (int i = 0; i < count; i++) {
@@ -30,7 +30,7 @@ public class Array {
     /*
         Runtime complexity - O(n)
     */
-    public void removeAt(int index){
+    public void removeAt(int index) {
         validateIndex(index);
 
         for (int i = index; i < count; i++) {
@@ -43,9 +43,9 @@ public class Array {
     /*
         Runtime complexity - O(n)
     */
-    public int getIndexByValue(int item){
+    public int getIndexByValue(int item) {
         for (int i = 0; i < count; i++) {
-            if(items[i] == item){
+            if (items[i] == item) {
                 return i;
             }
         }
@@ -56,14 +56,14 @@ public class Array {
     /*
         Runtime complexity - O(1)
     */
-    public int getValueByIndex(int index){
+    public int getValueByIndex(int index) {
         validateIndex(index);
         return items[index];
     }
 
     // check if the index within range
-    private void validateIndex(int index){
-        if(index < 0 || index >= count){
+    private void validateIndex(int index) {
+        if (index < 0 || index >= count) {
             throw new IllegalArgumentException("invalid index");
         }
     }
