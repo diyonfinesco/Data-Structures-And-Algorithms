@@ -18,6 +18,9 @@ public class LinkedList {
 
     private int size = 0;
 
+    /*
+        Runtime complexity - O(1)
+    */
     public void addFirst(int item) {
         Node node = new Node(item);
 
@@ -33,6 +36,9 @@ public class LinkedList {
         size++;
     }
 
+    /*
+        Runtime complexity - O(1)
+    */
     public void addLast(int item) {
         Node node = new Node(item);
 
@@ -48,10 +54,16 @@ public class LinkedList {
         size++;
     }
 
+    /*
+        Runtime complexity - O(n)
+    */
     public boolean contains(int item) {
         return indexOf(item) != -1;
     }
 
+    /*
+        Runtime complexity - O(n)
+    */
     public int indexOf(int item) {
         Node current = first;
         int index = 0;
@@ -67,6 +79,9 @@ public class LinkedList {
         return -1;
     }
 
+    /*
+        Runtime complexity - O(1)
+    */
     public void deleteFirst() {
         if (isEmpty()) {
             throw new NoSuchElementException();
@@ -83,6 +98,9 @@ public class LinkedList {
         size--;
     }
 
+    /*
+        Runtime complexity - O(n)
+    */
     public void deleteLast() {
         if (isEmpty()) {
             throw new NoSuchElementException();
@@ -106,6 +124,9 @@ public class LinkedList {
         size--;
     }
 
+    /*
+        Runtime complexity - O(n)
+    */
     public void print() {
         Node current = first;
 
@@ -115,6 +136,9 @@ public class LinkedList {
         }
     }
 
+    /*
+        Runtime complexity - O(n)
+    */
     public int[] toArray() {
         int[] array = new int[size];
         int index = 0;
@@ -129,10 +153,16 @@ public class LinkedList {
         return array;
     }
 
+    /*
+        Runtime complexity - O(1)
+    */
     public int size() {
         return size;
     }
 
+    /*
+        Runtime complexity - O(n)
+    */
     public void reverse() {
         if (isEmpty()) {
             return;
@@ -154,6 +184,9 @@ public class LinkedList {
         first = previousNode;
     }
 
+    /*
+        Runtime complexity - O(n)
+    */
     public int getKthFromTheEnd(int k) {
         if (isEmpty()) {
             throw new NoSuchElementException();
