@@ -1,5 +1,7 @@
 package data_structures;
 
+import java.util.Arrays;
+
 public class StackUsingLinkedList {
     private LinkedList list = new LinkedList();
 
@@ -19,5 +21,10 @@ public class StackUsingLinkedList {
 
     public boolean isEmpty() {
         return list.size() == 0;
+    }
+
+    @Override
+    public String toString() {
+        return Arrays.toString(list.toArray());
     }
 }

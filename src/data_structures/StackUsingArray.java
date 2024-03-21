@@ -10,6 +10,9 @@ public class StackUsingArray {
         items = new int[length];
     }
 
+    /*
+        Runtime complexity - O(1)
+    */
     public void push(int item) {
         if (count == items.length) {
             throw new StackOverflowError();
@@ -18,6 +21,9 @@ public class StackUsingArray {
         items[count++] = item;
     }
 
+    /*
+        Runtime complexity - O(1)
+    */
     public int pop() {
         if (isEmpty()) {
             throw new IllegalStateException();
@@ -25,6 +31,9 @@ public class StackUsingArray {
         return items[--count];
     }
 
+    /*
+        Runtime complexity - O(1)
+    */
     public int peek() {
         if (isEmpty()) {
             throw new IllegalStateException();
@@ -32,6 +41,9 @@ public class StackUsingArray {
         return items[count - 1];
     }
 
+    /*
+        Runtime complexity - O(1)
+    */
     public boolean isEmpty() {
         return count == 0;
     }

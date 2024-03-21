@@ -1,6 +1,5 @@
 package test;
 
-import data_structures.StackUsingArray;
 import data_structures.StackUsingLinkedList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -11,7 +10,8 @@ import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class StackUsingLinkedListTest {
+public class StackUsingLinkedListTest {
+
     @Nested
     @DisplayName("when new")
     class WhenNew {
@@ -30,13 +30,13 @@ class StackUsingLinkedListTest {
         }
 
         @Test
-        @DisplayName("throws IllegalStateException when popped")
+        @DisplayName("throws NoSuchElementException when popped")
         void throwsExceptionWhenPopped() {
             assertThrows(NoSuchElementException.class, stack::pop);
         }
 
         @Test
-        @DisplayName("throws IllegalStateException when peeked")
+        @DisplayName("throws NoSuchElementException when peeked")
         void throwsExceptionWhenPeeked() {
             assertThrows(NoSuchElementException.class, stack::peek);
         }
@@ -46,11 +46,11 @@ class StackUsingLinkedListTest {
     @DisplayName("after pushing an element")
     class AfterPushing {
 
-        private StackUsingArray stack;
+        private StackUsingLinkedList stack;
 
         @BeforeEach
         void pushAnElement() {
-            stack = new StackUsingArray(3);
+            stack = new StackUsingLinkedList();
             stack.push(1);
         }
 
@@ -76,40 +76,20 @@ class StackUsingLinkedListTest {
     }
 
     @Nested
-    @DisplayName("when full")
-    class WhenFull {
-
-        private StackUsingArray stack;
-
-        @BeforeEach
-        void fillStack() {
-            stack = new StackUsingArray(2);
-            stack.push(1);
-            stack.push(2);
-        }
-
-        @Test
-        @DisplayName("throws StackOverflowError when pushing another element")
-        void throwsErrorWhenPushingIntoFullStack() {
-            assertThrows(StackOverflowError.class, () -> stack.push(3));
-        }
-    }
-
-    @Nested
     @DisplayName("toString method")
     class ToStringMethod {
 
         @Test
         @DisplayName("correctly represents an empty stack")
         void correctlyRepresentsEmptyStack() {
-            StackUsingArray stack = new StackUsingArray(3);
+            StackUsingLinkedList stack = new StackUsingLinkedList();
             assertEquals("[]", stack.toString());
         }
 
         @Test
         @DisplayName("correctly represents a non-empty stack")
         void correctlyRepresentsNonEmptyStack() {
-            StackUsingArray stack = new StackUsingArray(3);
+            StackUsingLinkedList stack = new StackUsingLinkedList();
             stack.push(1);
             stack.push(2);
             assertEquals("[1, 2]", stack.toString());
