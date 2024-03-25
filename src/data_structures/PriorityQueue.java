@@ -7,8 +7,8 @@ public class PriorityQueue {
     private int[] items = new int[5];
     private int count;
 
-    public void add(int item){
-        if(count == items.length){
+    public void add(int item) {
+        if (count == items.length) {
             int[] newArray = new int[count * 2];
 
             for (int j = 0; j < items.length; j++) {
@@ -21,9 +21,9 @@ public class PriorityQueue {
         int i;
 
         for (i = count - 1; i >= 0; i--) {
-            if(items[i] > item){
+            if (items[i] > item) {
                 items[i + 1] = items[i];
-            }else{
+            } else {
                 break;
             }
         }
@@ -32,8 +32,8 @@ public class PriorityQueue {
         count++;
     }
 
-    public int remove(){
-        if(count == 0){
+    public int remove() {
+        if (count == 0) {
             throw new NoSuchElementException();
         }
 
